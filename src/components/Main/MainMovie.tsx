@@ -6,7 +6,7 @@ type MainPageMovieProps = {
   currentMovie: Movie | null;
 };
 
-function MainPageMovie({ currentMovie }: MainPageMovieProps) {
+function MainMovie({ currentMovie }: MainPageMovieProps) {
   return (
     <>
       <img
@@ -28,10 +28,10 @@ function MainPageMovie({ currentMovie }: MainPageMovieProps) {
         <p className="max-w-xl text-xl mb-8 leading-9">
           {currentMovie?.overview.split(".")[0]}...
         </p>
-        <MoreInfoBtn />
+        <MoreInfoBtn movie={currentMovie} />
       </div>
     </>
   );
 }
 
-export default MainPageMovie;
+export default MainMovie;

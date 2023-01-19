@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import MainPage from "./components/MainPage/MainPage";
-import Row from "./components/Row/Row";
-import requests from "./requests";
-import Footer from "./components/Footer";
+import { Routes, Route, Link } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import MyList from "./pages/MyList";
+import { SelectedMovieContextProvider } from "./context/SelectedMovieContext";
+import { ModalContextProvider } from "./context/ModalContext";
 
 export type Movie = {
   name: string;
@@ -23,16 +22,14 @@ export type Movie = {
 function App() {
   return (
     <div className="font-primary min-h-screen bg-primary text-white">
-      <Navbar />
-      <MainPage fetchUrl={requests.fetchTopRated} />
-      <div className="px-14 flex flex-col items-start gap-14">
-        <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
-        <Row title="Popular Now" fetchUrl={requests.fetchPopular} />
-      </div>
-      {/* Movie Component */}
-      {/* Modal Component */}
-      {/* Footer */}
-      <Footer />
+      <SelectedMovieContextProvider>
+        <ModalContextProvider>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/list" element={<MyList />} />
+          </Routes>
+        </ModalContextProvider>
+      </SelectedMovieContextProvider>
     </div>
   );
 }

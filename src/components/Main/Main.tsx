@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Movie } from "../../App";
 import axios from "../../axios";
-import MainPageMovie from "./MainPageMovie";
+import MainMovie from "./MainMovie";
 
 type MainPageProps = {
   fetchUrl: string;
@@ -9,7 +9,7 @@ type MainPageProps = {
 
 // https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg
 
-function MainPage({ fetchUrl }: MainPageProps) {
+function Main({ fetchUrl }: MainPageProps) {
   const [movies, setMovies] = useState<Array<Movie> | null>(null);
   const [currentMovie, setCurrentMovie] = useState<Movie | null>(null);
 
@@ -39,11 +39,11 @@ function MainPage({ fetchUrl }: MainPageProps) {
     <div className="mb-10">
       {movies && (
         <div className="relative">
-          <MainPageMovie currentMovie={currentMovie} />
+          <MainMovie currentMovie={currentMovie} />
         </div>
       )}
     </div>
   );
 }
 
-export default MainPage;
+export default Main;

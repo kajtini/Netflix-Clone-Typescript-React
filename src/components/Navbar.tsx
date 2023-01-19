@@ -3,12 +3,13 @@ import avatar from "../assets/avatar.png";
 import { BsSearch } from "react-icons/bs";
 import { MdNotificationsNone, MdArrowDropDown } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 type NavPage = {
   id: number;
   title: string;
   isActive: boolean;
+  link: string;
 };
 
 function Navbar() {
@@ -18,31 +19,37 @@ function Navbar() {
       id: 0,
       title: "Main page",
       isActive: true,
+      link: "/",
     },
     {
       id: 1,
-      title: "Lorem Ipsum",
+      title: "My List",
+      link: "/list",
       isActive: false,
     },
     {
       id: 2,
       title: "Lorem Ipsum",
       isActive: false,
+      link: "/",
     },
     {
       id: 3,
       title: "Lorem Ipsum",
       isActive: false,
+      link: "/",
     },
     {
       id: 4,
       title: "Lorem Ipsum",
       isActive: false,
+      link: "/",
     },
     {
       id: 5,
       title: "Lorem Ipsum",
       isActive: false,
+      link: "/",
     },
   ]);
 
@@ -77,15 +84,18 @@ function Navbar() {
       }  transition-all duration-300`}
     >
       <div className="flex items-center gap-10">
-        <a className="cursor-pointer" href="#">
+        <Link to="/" className="cursor-pointer">
           <img className="max-h-6" src={logo} alt="logo" />
-        </a>
+        </Link>
         <ul className="flex items-center gap-5 text-sm">
           {navPages.map((page) => (
             <li key={page.id} onClick={() => handlePageClick(page.id)}>
-              <a className={`${page.isActive && "font-bold"}`} href="#">
+              <Link
+                to={page.link}
+                className={`${page.isActive && "font-bold"}`}
+              >
                 {page.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

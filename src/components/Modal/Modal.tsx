@@ -43,7 +43,7 @@ function Modal({ movie }: ModalProps) {
               </div>
             </div>
 
-            <hr className="my-5 opacity-10 2xl:my-8" />
+            {movie.overview && <hr className="my-5 opacity-10 2xl:my-8" />}
             <p className="leading-8 2xl:text-xl 2xl:leading-10">
               {movie.overview}
             </p>
