@@ -3,6 +3,7 @@ import MainPage from "./pages/MainPage";
 import MyList from "./pages/MyList";
 import { SelectedMovieContextProvider } from "./context/SelectedMovieContext";
 import { ModalContextProvider } from "./context/ModalContext";
+import { MyListContextProvider } from "./context/MyListContext";
 
 export type Movie = {
   name: string;
@@ -24,10 +25,12 @@ function App() {
     <div className="font-primary min-h-screen bg-primary text-white">
       <SelectedMovieContextProvider>
         <ModalContextProvider>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/list" element={<MyList />} />
-          </Routes>
+          <MyListContextProvider>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/list" element={<MyList />} />
+            </Routes>
+          </MyListContextProvider>
         </ModalContextProvider>
       </SelectedMovieContextProvider>
     </div>

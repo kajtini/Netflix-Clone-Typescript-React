@@ -1,12 +1,11 @@
 import { Movie } from "../../App";
+import AddToListBtn from "../Buttons/AddToListBtn";
 
 type ModalProps = {
   movie: Movie | null;
 };
 
 function Modal({ movie }: ModalProps) {
-  console.log(movie);
-
   return (
     <>
       {movie && (
@@ -44,9 +43,10 @@ function Modal({ movie }: ModalProps) {
             </div>
 
             {movie.overview && <hr className="my-5 opacity-10 2xl:my-8" />}
-            <p className="leading-8 2xl:text-xl 2xl:leading-10">
+            <p className="leading-8 2xl:text-xl 2xl:leading-10 mb-8">
               {movie.overview}
             </p>
+            <AddToListBtn />
           </div>
         </div>
       )}

@@ -1,5 +1,4 @@
-import MoreInfoBtn from "../MoreInfoBtn";
-import LowGradient from "../LowGradient";
+import MoreInfoBtn from "../Buttons/MoreInfoBtn";
 import { Movie } from "../../App";
 
 type MainPageMovieProps = {
@@ -16,7 +15,7 @@ function MainMovie({ currentMovie }: MainPageMovieProps) {
             
             "
       />
-      <LowGradient />
+      <div className="bg-gradient-to-t from-primary to-transparent absolute top-0 left-0 right-0 bottom-0"></div>
 
       <div
         className="absolute top-[50%] left-[5%]

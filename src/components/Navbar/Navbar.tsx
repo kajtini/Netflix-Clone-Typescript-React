@@ -1,5 +1,5 @@
-import logo from "../assets/logo.png";
-import avatar from "../assets/avatar.png";
+import logo from "../../assets/logo.png";
+import avatar from "../../assets/avatar.png";
 import { BsSearch } from "react-icons/bs";
 import { MdNotificationsNone, MdArrowDropDown } from "react-icons/md";
 import { useEffect, useState } from "react";

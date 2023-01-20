@@ -1,7 +1,7 @@
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { Movie } from "../App";
-import { useSelectedMovie } from "../context/SelectedMovieContext";
-import { useModal } from "../context/ModalContext";
+import { Movie } from "../../App";
+import { useSelectedMovie } from "../../context/SelectedMovieContext";
+import { useModal } from "../../context/ModalContext";
 
 type MoreInfoBtnProps = {
   movie: Movie | null;

@@ -4,7 +4,7 @@ import MovieRowElement from "./MovieRowElement";
 import axios from "../../axios";
 import Modal from "../Modal/Modal";
 import Backdrop from "../Modal/Backdrop";
-import SliderBtn from "../SliderBtn";
+import SliderBtn from "../Buttons/SliderBtn";
 import { useSelectedMovie } from "../../context/SelectedMovieContext";
 import { useModal } from "../../context/ModalContext";
 
@@ -18,11 +18,9 @@ type RowProps = {
 function Row({ title, fetchUrl }: RowProps) {
   const [movies, setMovies] = useState<Array<Movie> | null>(null);
   const { modal, openModal, closeModal } = useModal();
-  const { selectedMovie, setSelectedMovie } = useSelectedMovie();
+  const { selectedMovie, handleMovieClick } = useSelectedMovie();
 
   const listRef = useRef<HTMLUListElement>(null);
-
-  // Testing
 
   useEffect(() => {
     async function fetchData() {
@@ -51,16 +49,7 @@ function Row({ title, fetchUrl }: RowProps) {
     }
   }
 
-  function handleMovieClick(id: number) {
-    openModal();
-    if (movies) {
-      // Fix this issue so i can do it in one line with set state
-      const selectedMovie = movies.find((movie) => movie.id === id);
-      if (selectedMovie) {
-        setSelectedMovie(selectedMovie);
-      }
-    }
-  }
+  console.log(selectedMovie);
 
   return (
     <div>
@@ -77,6 +66,7 @@ function Row({ title, fetchUrl }: RowProps) {
                   <MovieRowElement
                     key={movie.id}
                     id={movie.id}
+                    movies={movies}
                     movie={movie}
                     handleClick={handleMovieClick}
                   />
@@ -94,12 +84,6 @@ function Row({ title, fetchUrl }: RowProps) {
               handleLeftClick={handleLeftArrowClick}
             />
           </div>
-          {modal && (
-            <>
-              <Modal movie={selectedMovie} />
-              <Backdrop handleClick={closeModal} />
-            </>
-          )}
         </div>
       )}
     </div>
