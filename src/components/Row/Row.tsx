@@ -2,11 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { Movie } from "../../App";
 import MovieRowElement from "./MovieRowElement";
 import axios from "../../axios";
-import Modal from "../Modal/Modal";
-import Backdrop from "../Modal/Backdrop";
 import SliderBtn from "../Buttons/SliderBtn";
 import { useSelectedMovie } from "../../context/SelectedMovieContext";
-import { useModal } from "../../context/ModalContext";
 
 type RowProps = {
   title: string;
@@ -17,8 +14,7 @@ type RowProps = {
 
 function Row({ title, fetchUrl }: RowProps) {
   const [movies, setMovies] = useState<Array<Movie> | null>(null);
-  const { modal, openModal, closeModal } = useModal();
-  const { selectedMovie, handleMovieClick } = useSelectedMovie();
+  const { handleRowMovieClick } = useSelectedMovie();
 
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -49,17 +45,17 @@ function Row({ title, fetchUrl }: RowProps) {
     }
   }
 
-  console.log(selectedMovie);
-
   return (
     <div>
       {movies && (
         <div>
-          <h2 className="text-3xl font-bold mb-5 2xl:text-4xl">{title}</h2>
+          <h2 className="mb-5 text-2xl font-bold sm:text-3xl 2xl:text-4xl">
+            {title}
+          </h2>
           <div className="relative">
             <ul
               ref={listRef}
-              className="flex gap-4 overflow-scroll scroll-smooth scrollbar-hide relative items-center"
+              className="relative flex items-center gap-4 overflow-scroll scroll-smooth scrollbar-hide"
             >
               {movies.map((movie) => {
                 return (
@@ -68,7 +64,7 @@ function Row({ title, fetchUrl }: RowProps) {
                     id={movie.id}
                     movies={movies}
                     movie={movie}
-                    handleClick={handleMovieClick}
+                    handleClick={handleRowMovieClick}
                   />
                 );
               })}

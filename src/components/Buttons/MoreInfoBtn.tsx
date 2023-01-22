@@ -18,10 +18,10 @@ function MoreInfoBtn({ movie }: MoreInfoBtnProps) {
 
   return (
     <button
-      className="flex items-center gap-2 font-bold text-2xl bg-[#4f504a] py-3 px-6 rounded-lg bg-opacity-70 cursor-pointer justify-center hover:bg-opacity-40 transition-all"
+      className="flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#4f504a] bg-opacity-70 py-2 px-3 font-bold transition-all hover:bg-opacity-40 sm:py-3 sm:px-6 lg:text-xl xl:text-2xl"
       onClick={handleClick}
     >
-      <AiOutlineInfoCircle size={25} />
+      <AiOutlineInfoCircle size={20} />
       Learn More
     </button>
   );

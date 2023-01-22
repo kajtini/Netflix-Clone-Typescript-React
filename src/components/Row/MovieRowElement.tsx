@@ -18,7 +18,7 @@ function MovieRowElement({
 
   return (
     <li
-      className="flex-shrink-0 relative cursor-pointer"
+      className="relative flex-shrink-0 cursor-pointer"
       onClick={() => {
         openModal();
         handleClick(id, movies);
@@ -27,11 +27,11 @@ function MovieRowElement({
       <img
         src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
         alt="movie image"
-        className="max-h-44 2xl:max-h-80 rounded-lg"
+        className="max-h-32 rounded-lg sm:max-h-44 2xl:max-h-80"
       />
 
-      <div className="absolute inset-0 hover:bg-primary hover:bg-opacity-70 opacity-0 hover:opacity-100 flex items-center justify-center transition-all">
-        <span className="font-bold text-2xl flex flex-col w-full text-center max-w-[256px] hover:block">
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all hover:bg-primary hover:bg-opacity-70 hover:opacity-100">
+        <span className="flex w-full max-w-[256px] flex-col text-center text-xl font-bold hover:block sm:text-2xl">
           {movie.title ? movie.title : movie.name}
         </span>
       </div>

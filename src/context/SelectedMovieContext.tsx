@@ -4,7 +4,7 @@ import { Movie } from "../App";
 type SelectedMovieContextType = {
   selectedMovie: Movie | null;
   setSelectedMovie: React.Dispatch<React.SetStateAction<Movie | null>>;
-  handleMovieClick: (id: number, movies: Array<Movie>) => void;
+  handleRowMovieClick: (id: number, movies: Array<Movie>) => void;
 };
 
 type SelectedMovieContextProviderProps = {
@@ -22,7 +22,7 @@ export function SelectedMovieContextProvider({
 }: SelectedMovieContextProviderProps) {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  function handleMovieClick(id: number, movies: Array<Movie>) {
+  function handleRowMovieClick(id: number, movies: Array<Movie>) {
     const selected = movies.find((movie) => movie.id === id);
 
     if (selected) {
@@ -32,7 +32,7 @@ export function SelectedMovieContextProvider({
 
   return (
     <SelectedMovieContext.Provider
-      value={{ selectedMovie, setSelectedMovie, handleMovieClick }}
+      value={{ selectedMovie, setSelectedMovie, handleRowMovieClick }}
     >
       {children}
     </SelectedMovieContext.Provider>

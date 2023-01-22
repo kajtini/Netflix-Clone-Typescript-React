@@ -10,6 +10,7 @@ module.exports = {
         primary: "hsl(240, 50%, 2%)",
         navGradient: "#121212",
         "rating-green": "#307841",
+        "close-btn": "#181818",
       },
     },
   },

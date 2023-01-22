@@ -15,16 +15,16 @@ function MainMovie({ currentMovie }: MainPageMovieProps) {
             
             "
       />
-      <div className="bg-gradient-to-t from-primary to-transparent absolute top-0 left-0 right-0 bottom-0"></div>
+      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-primary to-transparent"></div>
 
       <div
         className="absolute top-[50%] left-[5%]
-            translate-y-[-50%] flex flex-col items-start"
+            flex translate-y-[-50%] flex-col items-start"
       >
-        <h1 className="text-8xl font-bold max-w-3xl mb-4">
+        <h1 className="mb-4 max-w-3xl text-3xl font-bold sm:text-5xl xl:text-8xl">
           {currentMovie?.name}
         </h1>
-        <p className="max-w-xl text-xl mb-8 leading-9">
+        <p className="mb-8 hidden max-w-lg leading-7 lg:block lg:max-w-xl lg:text-lg lg:leading-9 xl:text-xl xl:leading-9">
           {currentMovie?.overview.split(".")[0]}...
         </p>
         <MoreInfoBtn movie={currentMovie} />

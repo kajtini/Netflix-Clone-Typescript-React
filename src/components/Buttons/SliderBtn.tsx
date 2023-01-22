@@ -15,7 +15,7 @@ function SliderBtn({
     <div
       className={`absolute top-[50%] translate-y-[-50%] ${
         direction === "right" ? "right-0" : "left-0"
-      } cursor-pointer bg-primary p-4 2xl:p-5 rounded-full bg-opacity-70 hover:bg-opacity-95 transition-all`}
+      } cursor-pointer rounded-full bg-primary bg-opacity-70 p-2 transition-all hover:bg-opacity-95 sm:p-4 2xl:p-5`}
       onClick={direction === "right" ? handleRightClick : handleLeftClick}
     >
       {direction === "right" ? (

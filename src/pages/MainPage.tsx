@@ -16,7 +16,7 @@ function MainPage() {
     <>
       <Navbar />
       <Main fetchUrl={requests.fetchTopRated} />
-      <div className="px-14 flex flex-col items-start gap-14">
+      <div className="flex flex-col items-start gap-14 px-6 sm:px-14">
         <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
         <Row title="Popular Now" fetchUrl={requests.fetchPopular} />
       </div>
@@ -26,7 +26,7 @@ function MainPage() {
           <Backdrop handleClick={closeModal} />
         </>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

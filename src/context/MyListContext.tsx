@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 import { Movie } from "../App";
 
 type MyListContextProviderType = {
@@ -9,6 +15,8 @@ type MyListContextType = {
   moviesList: Array<Movie>;
   addToList: (movie: Movie) => void;
   removeFromList: (movie: Movie) => void;
+  checkIfInList: (movie: Movie) => boolean;
+  clearList: () => void;
 };
 
 const MyListContext = createContext({} as MyListContextType);
@@ -30,8 +38,26 @@ export function MyListContextProvider({ children }: MyListContextProviderType) {
     );
   }
 
+  function checkIfInList(movie: Movie) {
+    return (
+      moviesList.filter((listMovie) => listMovie.id === movie.id).length > 0
+    );
+  }
+
+  function clearList() {
+    setMoviesList([]);
+  }
+
   return (
-    <MyListContext.Provider value={{ moviesList, addToList, removeFromList }}>
+    <MyListContext.Provider
+      value={{
+        moviesList,
+        addToList,
+        removeFromList,
+        checkIfInList,
+        clearList,
+      }}
+    >
       {children}
     </MyListContext.Provider>
   );

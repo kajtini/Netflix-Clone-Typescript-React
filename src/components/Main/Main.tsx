@@ -36,7 +36,7 @@ function Main({ fetchUrl }: MainPageProps) {
   }, [movies]);
 
   return (
-    <div className="mb-10">
+    <div className="">
       {movies && (
         <div className="relative">
           <MainMovie currentMovie={currentMovie} />
